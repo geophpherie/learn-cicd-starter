@@ -10,7 +10,7 @@ import (
 func TestNoHeader(t *testing.T) {
 	headers := http.Header(map[string][]string{})
 	_, err := GetAPIKey(headers)
-	if errors.Is(err, ErrNoAuthHeaderIncluded) {
+	if !errors.Is(err, ErrNoAuthHeaderIncluded) {
 		t.Fail()
 	}
 }
